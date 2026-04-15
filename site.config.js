@@ -56,7 +56,7 @@ window.SITE_CONFIG = {
       }
     ],
     video: {
-      src: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/joyra-demo.mov",
+      src: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/joyra-demo-final.mp4",
       poster: "",
       title: "JoyAI-RA Hero",
       description:
