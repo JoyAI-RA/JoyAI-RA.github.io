@@ -78,7 +78,7 @@ window.SITE_CONFIG = {
         id: "model-architecture",
         title: "Model Architecture",
         description:
-          "JoyAI-RA adopts a modular design that decouples visual-language understanding from action generation via a Vision-Language Model (VLM) and a perception-action expert. Given multi-view observations and language inputs, the VLM produces spatially grounded multimodal representations that encode both semantic and geometric context. These representations are provided as contextual inputs to the perception-action expert, which predicts temporally consistent continuous actions.",
+          "JoyAI-RA adopts a modular design: a vision-language model (VLM) handles vision-language understanding, and a perception-action expert, built upon a Perceiver architecture for efficient multi-modal fusion via latent bottlenecks, generates actions, decoupling semantics from low-level control. Given multi-view observations and language inputs, the VLM produces spatially grounded multimodal representations that encode both semantic and geometric context. These representations are provided as contextual inputs to the perception-action expert, which predicts temporally consistent continuous actions.",
         image: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/image3.png",
         alt: "Model Architecture placeholder"
       }
