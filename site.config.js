@@ -28,7 +28,7 @@ window.SITE_CONFIG = {
     },
     subtitle: "A VLA Foundation Model for Robotic Autonomy",
     videoDescription:
-      "We propose JoyAI-RA, a vision-language-action (VLA) embodied foundation model tailored for generalizable robotic manipulation. JoyAI-RA presents a multi-source multi-level pretraining framework that integrates large-scale first-person human videos collected with proprietary hardware, real-robot data, and simulation-generated trajectory data. Through training on heterogeneous multi-source data with explicit action-space unification, JoyAI-RA effectively bridges embodiment gaps, particularly between human manipulation and robotic control, thereby enhancing cross-embodiment behavior learning. JoyAI-RA generalizes well across diverse environments and tasks, outperforming state-of-the-art methods in both simulation and real-world benchmarks.",
+      "We propose JoyAI-RA, a vision-language-action (VLA) embodied foundation model tailored for generalizable robotic manipulation. JoyAI-RA presents a multi-source multi-level pretraining framework that integrates web data, large-scale egocentric human manipulation videos, simulation-generated trajectories, and real-robot data. Through training on heterogeneous multi-source data with explicit action-space unification, JoyAI-RA effectively bridges embodiment gaps, particularly between human manipulation and robotic control, thereby enhancing cross-embodiment behavior learning. JoyAI-RA outperforms state-of-the-art methods in both simulation and real-world benchmarks, especially on diverse tasks with generalization demands.",
     points: [
     ],
     highlights: [
@@ -56,7 +56,8 @@ window.SITE_CONFIG = {
       }
     ],
     video: {
-      src: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/joyra-demo-final.mp4",
+      src: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/image.png",
+      type: "image",
       poster: "",
       title: "JoyAI-RA Hero",
       description:
@@ -65,14 +66,6 @@ window.SITE_CONFIG = {
   },
   technologyBlocks: {
     blocks: [
-      {
-        id: "overview",
-        title: "Overview",
-        description:
-          "JoyAI-RA is trained on three complementary data sources: human egocentric videos & web data, simulation-generated trajectories, and real-robot demonstrations. Through a multi-level pretraining framework with action-space unification, JoyAI-RA learns a unified VLA policy that generalizes across diverse and complex tasks.",
-        image: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/image.png",
-        alt: "Overview placeholder"
-      },
       {
         id: "dataset",
         title: "Dataset",
@@ -136,51 +129,100 @@ window.SITE_CONFIG = {
     }
   },
   egoliveAblation: {
-    title: "EgoLive Data Validity Ablation Analysis",
+    title: "Effectiveness Analysis of EgoLive Data",
     description:
-      "We evaluate the effect of our human egocentric video dataset, EgoLive, on both simulation and real-world benchmarks. As shown below, pretraining with the full EgoLive and JDAgibot datasets achieves the strongest overall result on RoboTwin 2.0, reaching an average success rate of 87.4%, outperforming both training from scratch and robot-only pretraining. Please refer to our technical report for more experimental analysis.",
-    chart: {
-      key: "egolive-ablation",
-      yLabel: "Success Rate (%)",
-      yMax: 120,
-      yTicks: [0, 20, 40, 60, 80, 100, 120],
-      valueFormat: "integer",
-      labelAngle: -28,
-      separatorBeforeIndex: 10,
-      categories: [
-        "Stack Blocks 3",
-        "Stack Bowls 3",
-        "Blocks Ranking",
-        "Stack Blocks 2",
-        "Stack Bowls 2",
-        "Open Microwave",
-        "Put Obj. Cabinet",
-        "Place Mouse Pad",
-        "Place Cans",
-        "Place Fan",
-        "Average"
-      ],
-      groups: [
-        { label: "Spatial & Stacking", start: 0, end: 4 },
-        { label: "Complex Interaction", start: 5, end: 6 },
-        { label: "Fine-grained Placement", start: 7, end: 9 }
-      ],
-      series: [
-        {
-          name: "JDAgibot Only",
-          color: "#73acd1",
-          values: [28, 29, 68, 81, 70, 44, 83, 65, 82, 87, 64]
-        },
-        {
-          name: "EgoLive(Full)+JDAgiBot",
-          color: "#c0392b",
-          values: [89, 89, 99, 99, 94, 100, 93, 87, 99, 94, 94]
-        }
-      ],
-      captionIndex: "",
-      caption:
-        "Performance comparison of representative tasks between JDAgibot Only and EgoLive-1000+JDAgiBot on the RoboTwin 2.0 benchmark."
-    }
+      "We evaluate the effect of our human egocentric video dataset, EgoLive, on both simulation and real-world benchmarks. As shown below, pretraining with the full EgoLive and JDAgibot datasets achieves the strongest overall result on RoboTwin 2.0, reaching an average success rate of 87.4%, outperforming both training from scratch and robot-only pretraining. We further evaluate the effectiveness of EgoLive on the AgiBot G1 platform, where incorporating human egocentric data consistently improves the real-robot performance of JoyAI-RA, increasing the average score from 0.56 to <strong>0.74</strong>. In addition, JoyAI-RA achieves a higher average success rate across the six tasks compared to the w/o In-Domain EgoLive data. Please refer to our technical report for more experimental analysis.",
+    tabs: [
+      {
+        key: "robotwin",
+        label: "RoboTwin 2.0",
+        intro:
+          "Performance comparison of representative tasks between JDAgibot Only and EgoLive(Full)+JDAgibot on the RoboTwin 2.0 benchmark.",
+        figures: [
+          {
+            key: "egolive-ablation-robotwin",
+            yLabel: "Success Rate (%)",
+            yMax: 120,
+            yTicks: [0, 20, 40, 60, 80, 100, 120],
+            valueFormat: "integer",
+            labelAngle: -28,
+            separatorBeforeIndex: 10,
+            categories: [
+              "Stack Blocks 3",
+              "Stack Bowls 3",
+              "Blocks Ranking",
+              "Stack Blocks 2",
+              "Stack Bowls 2",
+              "Open Microwave",
+              "Put Obj. Cabinet",
+              "Place Mouse Pad",
+              "Place Cans",
+              "Place Fan",
+              "Average"
+            ],
+            groups: [
+              { label: "Spatial & Stacking", start: 0, end: 4 },
+              { label: "Complex Interaction", start: 5, end: 6 },
+              { label: "Fine-grained Placement", start: 7, end: 9 }
+            ],
+            series: [
+              {
+                name: "JDAgibot Only",
+                color: "#73acd1",
+                values: [28, 29, 68, 81, 70, 44, 83, 65, 82, 87, 64]
+              },
+              {
+                name: "EgoLive(Full)+JDAgibot",
+                color: "#c0392b",
+                values: [89, 89, 99, 99, 94, 100, 93, 87, 99, 94, 94]
+              }
+            ],
+            caption:
+              "Performance comparison of representative tasks between JDAgibot Only and EgoLive(Full)+JDAgibot on the RoboTwin 2.0 benchmark."
+          }
+        ]
+      },
+      {
+        key: "real-world",
+        label: "Real-World",
+        intro:
+          "Ablation result on the AgiBot benchmark with and without in-domain EgoLive.",
+        figures: [
+          {
+            key: "egolive-ablation-real-world",
+            yLabel: "Average Success Rate of Subtasks",
+            yMax: 1.15,
+            yTicks: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+            valueFormat: "decimal",
+            labelAngle: 0,
+            separatorBeforeIndex: 6,
+            categories: [
+              "Headphones",
+              "Mouse",
+              "Cup",
+              "Croissant",
+              "Food Scraps",
+              "Remedy",
+              "Average"
+            ],
+            series: [
+              {
+                name: "w/o In-Domain",
+                color: "#73acd1",
+                values: [0.55, 0.75, 0.4, 0.1, 0.47, 0.55, 0.47]
+              },
+              {
+                name: "w In-Domain",
+                color: "#c0392b",
+                values: [0.8, 0.6, 0.55, 0.2, 0.17, 0.83, 0.53]
+              }
+            ],
+            caption:
+              "Ablation result on the AgiBot benchmark with and without in-domain EgoLive."
+          }
+        ]
+      }
+    ]
   },
   videos: {
     title: "Videos",
@@ -280,6 +322,16 @@ window.SITE_CONFIG = {
         ]
       },
     ]
+  },
+  moreIntelligence: {
+    title: "More Data, More Intelligence",
+    description:
+      "More data, more intelligence, coming from the scene and returning to the scene: scene-driven data flywheel.",
+    media: {
+      src: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/demo-2k.mov",
+      poster: "",
+      title: "More Data, More Intelligence"
+    }
   },
   // citation: {
   //   title: "Citation",

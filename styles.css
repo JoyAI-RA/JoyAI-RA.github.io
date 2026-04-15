@@ -483,6 +483,11 @@ main {
   box-shadow: var(--surface-shadow);
 }
 
+.hero-video-shell.has-image {
+  aspect-ratio: auto;
+  background: #f7fbff;
+}
+
 .hero-video-shell::after {
   content: "";
   position: absolute;
@@ -494,10 +499,25 @@ main {
   pointer-events: none;
 }
 
+.hero-video-shell.has-image::after {
+  display: none;
+}
+
 .hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hero-video.media-image {
+  height: auto;
+  object-fit: contain;
+}
+
+.media-image {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .section {
@@ -824,11 +844,35 @@ main {
   display: none;
 }
 
+.benchmark-section .tab-panel:not([hidden]),
 .simulation-section .tab-panel:not([hidden]),
 .videos-section .tab-panel:not([hidden]) {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.feature-media-section .section-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-media-section .section-header {
+  width: min(100%, var(--content-width));
+  align-items: flex-start;
+  text-align: left;
+}
+
+.feature-media-section .section-header.is-centered {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.feature-media-section .section-header .section-description {
+  width: 100%;
+  max-width: var(--content-width);
+  text-align: left;
 }
 
 .chart-card-head {
@@ -926,6 +970,24 @@ main {
 }
 
 .video-pair-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-single-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  border: 1px solid rgba(112, 140, 210, 0.16);
+  background: #040507;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.video-single-player {
   width: 100%;
   height: 100%;
   object-fit: cover;
