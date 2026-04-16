@@ -36,7 +36,7 @@ window.SITE_CONFIG = {
     actions: [
       {
         label: "Tech Report",
-        href: "",
+        href: "./JoyAI-RA.pdf",
         kind: "primary"
       },
       {
@@ -45,7 +45,7 @@ window.SITE_CONFIG = {
         kind: "secondary"
       },
       {
-        label: "Hugging Face",
+        label: "Datasets",
         href: "",
         kind: "secondary"
       },
