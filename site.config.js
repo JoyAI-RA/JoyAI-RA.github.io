@@ -26,7 +26,7 @@ window.SITE_CONFIG = {
       src: "https://joyra.s3.cn-north-1.jdcloud-oss.com/assets/logo2.png",
       alt: "JoyAI-RA 0.1"
     },
-    subtitle: "A VLA Foundation Model for Robotic Autonomy",
+    subtitle: "A Foundation Model for Robotic Autonomy",
     videoDescription:
       "We propose JoyAI-RA, a vision-language-action (VLA) embodied foundation model tailored for generalizable robotic manipulation. JoyAI-RA presents a multi-source multi-level pretraining framework that integrates web data, large-scale egocentric human manipulation videos, simulation-generated trajectories, and real-robot data. Through training on heterogeneous multi-source data with explicit action-space unification, JoyAI-RA effectively bridges embodiment gaps, particularly between human manipulation and robotic control, thereby enhancing cross-embodiment behavior learning. JoyAI-RA outperforms state-of-the-art methods in both simulation and real-world benchmarks, especially on diverse tasks with generalization demands.",
     points: [
