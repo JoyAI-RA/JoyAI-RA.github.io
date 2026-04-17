@@ -36,7 +36,7 @@ window.SITE_CONFIG = {
     actions: [
       {
         label: "Tech Report",
-        href: "",
+        href: "https://joyra.s3.cn-north-1.jdcloud-oss.com/JoyAIRA.pdf",
         kind: "primary"
       },
       {
