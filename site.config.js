@@ -36,7 +36,7 @@ window.SITE_CONFIG = {
     actions: [
       {
         label: "Tech Report",
-        href: "./JoyAI-RA.pdf",
+        href: "",
         kind: "primary"
       },
       {
